@@ -5,6 +5,10 @@ import kotlinx.serialization.json.*
 data class Data(val a: Int, val b: String = "42")
 
 fun main() {
+
+    
+
+
     // Json also has .Default configuration which provides more reasonable settings,
     // but is subject to change in future versions
     val json = Json(JsonConfiguration.Stable)
@@ -19,7 +23,7 @@ fun main() {
     val obj = json.parse(Data.serializer(), """{"a":42}""") // b is optional since it has default value
     println(obj) // Data(a=42, b="42")
 
+print("hi")
 
-    
 }
 
