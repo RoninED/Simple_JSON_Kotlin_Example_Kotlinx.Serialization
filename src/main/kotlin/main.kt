@@ -9,39 +9,20 @@ class TestClass (var a: String)
 data class Data(val b: TestClass = TestClass("wow"),val b2: TestClass = TestClass("wow2") )
 
 fun main() {
-//    val json = Json(JsonConfiguration.Stable)
-//
-//    val jsonData = json.stringify(Data.serializer(), Data())
-//
+
+//    Создем json обьект и устанавливаем стабильные настройки с изменением вывода в структурированую форму
+    val json = Json(JsonConfiguration.Stable.copy(prettyPrint = true))
+
+//    создаем еще один json обьект (для наглядности) и с помощью прошлого json обьекта сериализируем нужный обьект класса
+    val jsonData = json.stringify(Data.serializer(), Data())
+
+//    выводим в консоль
+    print(jsonData)
+
+//    создаем обьект файла и присваеваем путь
     var file = File("test.json")
-//
-//
-//    file.writeText(jsonData)
 
-//    var temp = file.readText()
-//    print(temp)
-
-    file.writeText("1\n" +
-            "2" +
-            "3" +
-            "4")
-    print(file.readText())
-
-    // Json also has .Default configuration which provides more reasonable settings,
-    // but is subject to change in future versions
-//    val json = Json(JsonConfiguration.Stable)
-    // serializing objects
-//    val jsonData = json.stringify(Data.serializer(), Data(42))
-//    // serializing lists
-//    val jsonList = json.stringify(Data.serializer().list, listOf(Data(42)))
-//    println(jsonData) // {"a": 42, "b": "42"}
-//    println(jsonList) // [{"a": 42, "b": "42"}]
-
-//    // parsing data back
-//    val obj = json.parse(Data.serializer(), """{"a":42}""") // b is optional since it has default value
-//    println(obj) // Data(a=42, b="42")
-
-
-
+//    записываем в файл второй json обьект
+    file.writeText(jsonData)
 }
 
