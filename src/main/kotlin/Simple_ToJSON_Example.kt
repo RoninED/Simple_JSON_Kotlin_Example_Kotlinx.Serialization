@@ -28,5 +28,9 @@ fun main() {
 
 //    записываем в файл json обьект
     file.writeText(jsonData)
+
+
+
+
 }
 
