@@ -6,6 +6,8 @@ import java.io.File
 
 fun main() {
 
+
+
 //  Создаем класс для записи
     @Serializable
     class TestClass (var a: String = "testText")
@@ -24,9 +26,8 @@ fun main() {
     print(jsonData)
 
 //    создаем обьект файла и присваеваем путь
-    var file = File("test.json")
-
 //    записываем в файл json обьект
+    var file = File("test.json")
     file.writeText(jsonData)
 
 
